@@ -1,0 +1,40 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<div class="uni-connect-wallet uk-section uk-section-large@m uk-panel uk-overflow-hidden uk-border-top">
+
+                <!-- Page header -->
+                <header class="uni-page-header">
+                    <div class="uk-container">
+                        <h1 class="heading uk-h3 uk-h5@m uk-text-center">Total Asset : &dollar;{{ total|floatformat:4|intcomma }}</h1>
+
+                    </div>
+                </header>
+                <div class="uk-margin-medium-top">
+                    <div class="uk-container">
+                        <div class="uk-panel uk-flex-column uk-flex-center uk-width-xlarge@m uk-margin-auto">
+                            
+                            <div class="uk-margin-medium@m" data-uk-margin="margin: uk-margin-xsmall-top">
+                            	{% for item in data %}
+
+                                <a href="#wallet" class="uk-button uk-button-medium uk-button-default uk-button-outline uk-width-expand">
+                                    <span class="uk-position-center-left uk-position-small"> <img class="uk-icon-small" src="{{ item.logo }}" alt="" data-uk-svg loading="lazy"> {{ item.name }} - <small>${{ item.unit_price|floatformat:4|intcomma }}</small> </span>
+                                    <br>
+                                    
+                                    <b>{{ item.balance|floatformat:4|intcomma }}</b>
+                                    <p class="uk-position-center-right uk-position-small">${{ item.total_price|floatformat:4|intcomma }}</p>
+                                </a>
+                                {% endfor%}
+                                
+                                
+                            </div>
+                            
+                            <p class="uk-text-small uk-text-muted uk-text-center">We do not own your private keys and cannot access your funds without your confirmation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

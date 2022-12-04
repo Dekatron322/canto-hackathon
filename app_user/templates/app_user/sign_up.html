@@ -1,0 +1,52 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+            <div class="uni-sign-in uk-section uk-section-large@m uk-panel uk-overflow-hidden uk-border-top">
+
+                <!-- Page header -->
+                <header class="uni-page-header">
+                    <div class="uk-container">
+                        <h5 class="heading uk-h3 uk-h3@m uk-text-center">Create Wallet</h5>
+                    </div>
+                </header>
+                <div class="uk-margin-top uk-margin-large-top@m">
+                    <div class="uk-container">
+                        <div class="uk-flex-column uk-flex-center uk-width-medium@m uk-margin-auto">
+                            <form class="uk-form-stacked uk-panel uk-width-1-1" action="" method="post">
+                              {% csrf_token %}
+                                <div class="uk-margin-medium">
+                                    <label for="username-signup" class="uk-form-label">Your username: <span class="uk-text-danger">*</span></label>
+                                    <input id="username-signup" type="text" name="username" class="uk-input" required>
+                                </div>
+                                
+                                <div class="uk-margin">
+                                    <label for="password-signup-page" class="uk-form-label">Your password: <span class="uk-text-danger">*</span></label>
+                                    <input id="password-signup-page" type="password" name="password1" class="uk-input" required>
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="password-signup-page" class="uk-form-label">comfirm password: <span class="uk-text-danger">*</span></label>
+                                    <input id="password-signup-page" type="password" name="password2" class="uk-input" required>
+                                </div>
+                                <div class="uk-margin-medium">
+                                    <button type="submit" class="uk-button uk-button-primary uk-button-large@m uk-width-expand">Sign up</button>
+                                </div>
+                                
+                            </form>
+                            <p class="uk-text-small uk-text-bold uk-text-center uk-margin-large-top@m">
+                                You already have an account? <a href="sign-in.html" class="uk-link-line"><span>Log in</span></a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+
+<!-- Mirrored from unistudio.co/html/renox/main/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Dec 2022 17:56:19 GMT -->
+</html>
+
+{% endblock %}
