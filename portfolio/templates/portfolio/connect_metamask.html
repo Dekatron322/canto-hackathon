@@ -2,8 +2,10 @@
 {% load static %}
 {% block content %}
 
-            <div class="uni-sign-in uk-section uk-section-large@m uk-panel uk-overflow-hidden uk-border-top">
 
+
+            <div class="uni-sign-in uk-section uk-section-large@m uk-panel uk-overflow-hidden uk-border-top">
+              <br><br><br><br>
                 <!-- Page header -->
                 <header class="uni-page-header">
                     <div class="uk-container">
@@ -23,7 +25,7 @@
                                         <label for="remember-login-page" class="uk-form-label uk-margin-xsmall-left">Remember me?</label>
                                     </div>
                                     <div>
-                                        <a href="reset-password.html" class="uk-link-line uk-text-small uk-text-bold">
+                                        <a href="{% url 'portfolio:your_portfolio_canto' %}" class="uk-link-line uk-text-small uk-text-bold">
                                             <span>Use Wallet Address</span>
                                         </a>
                                     </div>
@@ -38,21 +40,21 @@
 
                             <div class="text-center text-white text-opacity-50">
     <div class="card-footer" id="connected" style="display: none">
-        <p class="d-flex justify-content-center align-items-center m-0" id="network btn-disconnect">
+        <p class="d-flex justify-content-center align-items-center m-0 uk-p uk-p@m uk-text-center" id="network btn-disconnect">
             <span class="h4 m-0 font-weight-normal">Network: </span>
-            <span class="h4 m-0 font-weight-normal" id="network-name">Bitgert</span>
+            <span class="h4 m-0 font-weight-normal" id="network-name">Canto</span>
         </p>
         
-        <p class="lh-1 text-muted mb-3 mt-3" id="network"><small>Address:<span id="selected-account"></span></small></p>
+        <p class="lh-1 text-muted mb-3 mt-3 uk-p uk-p@m uk-text-center" id="network"><small>Address:<span id="selected-account"></span></small></p>
         <form method="POST">
         {% csrf_token %}
         <input type="hidden" name="wallet" id="raywallet" value="">
-        <button class="btn btn-outline-success" id="btn-connect" type="submit">Go to Portfolio</button>
+        <button class="btn btn-outline-success uk-button uk-button-primary uk-button-small@m uk-width-expand" id="btn-connect" type="submit">View Asset</button>
                                         
         </form>
                                         
         <p style="text-align:center">or</p>
-        <button class="btn btn-outline-danger" id="btn-disconnect">Disconnect Wallet</button>
+        <button class="btn btn-outline-danger uk-button uk-button-danger uk-button-small@m uk-width-expand" id="btn-disconnect">Disconnect Wallet</button>
             
 
             
@@ -357,9 +359,6 @@ window.addEventListener('load', async () => {
 
 
     </script>
-    </body>
-
-<!-- Mirrored from unistudio.co/html/renox/main/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Dec 2022 17:56:19 GMT -->
-</html>
+   
 
 {% endblock %}

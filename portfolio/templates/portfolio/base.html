@@ -8,9 +8,10 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Spinlab</title>
-        <link rel="icon" type="image/png" href="https://unistudio.co/html/renox/favicon.ico"/>
+        <title>Onion Protocol</title>
+        <link rel="icon" type="image/png" href="{% static 'assets/images/onion-22189.png' %}"/>
         <meta name="description" content="NFT Marketplace Template">
+        <meta name="keywords" content="Cryptocurrency wallet, Asset manager, Smart contract creator, Blockchain tools, Decentralized technology, Digital asset management, Portfolio tracking, Price alerts, Market analysis, Smart contract deployment, Multiple account management, Support for different cryptocurrencies and tokens, User-friendly interface for creating and editing contracts, Testing and deploying contracts to the blockchain.">
         <meta name="theme-color" content="#0066ff">
 
         <!-- preload head styles -->
@@ -32,6 +33,7 @@
         <link rel="preload" href="{% static 'assets/js/typed-helper.js' %}">
         <link rel="preload" href="{% static 'assets/js/anime-helper.js' %}">
         <link rel="preload" href="{% static 'assets/js/anime-helper-defined-timelines.js' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
         <!-- include styles -->
         <script src="{% static 'assets/js/app-head.js' %}"></script>
@@ -262,8 +264,8 @@
                                     </div>
 
                                     <a class="uk-logo uk-navbar-item uk-h4 uk-h3@m uk-margin-remove" href="index.html">
-                                        <span class="uk-visible@m"> <img class="uk-visible dark:uk-hidden" width="140" src="{% static 'assets/images/spinlab.png' %}" alt="Renox" loading="lazy"> <img class="uk-hidden dark:uk-visible" width="140" src="{% static 'assets/images/spinlab.png' %}" alt="Renox" loading="lazy"> </span>
-                                        <span class="uk-hidden@m"> <img class="" width="40" src="{% static 'assets/images/spinlab.png' %}" alt="Renox" loading="lazy"> </span>
+                                        <span class="uk-visible@m"> <img class="uk-visible dark:uk-hidden" width="140" src="{% static 'assets/images/onion.png' %}" alt="Renox" loading="lazy"> <img class="uk-hidden dark:uk-visible" width="140" src="{% static 'assets/images/onion.png' %}" alt="Onion" loading="lazy"> </span>
+                                        <span class="uk-hidden@m"> <img class="" width="40" src="{% static 'assets/images/onion-22189.png' %}" alt="Renox" loading="lazy"> </span>
                                     </a>
 
                                     <ul class="uk-navbar-nav uk-margin-left dark:uk-text-gray-10 uk-visible@m" data-uk-navbar-bound>
@@ -322,53 +324,7 @@
     {% block content %}
 
     {% endblock %}
-
-        <footer class="uni-footer uk-section-small uk-section-medium@m uk-border-top">
-            <div class="uk-container uk-container-expand">
-                <div class="uk-grid-2xlarge uk-grid-divider uk-child-width-1-1 uk-grid" data-uk-grid>
-                    
-                    <div>
-                        <div class="uk-grid-small uk-grid-medium@m uk-child-width-auto uk-flex-center uk-flex-between@m uk-flex-middle uk-text-center uk-text-left@m uk-grid" data-uk-grid>
-                            <div class="uk-flex-last@m">
-                                <ul class="uni-social-media uk-subnav uk-subnav-small uk-text-muted">
-                                    <li>
-                                        <a aria-label="twitter" href="https://twitter.com/unistudioco"><i class="uk-icon-small brand-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a aria-label="facebook" href="https://facebook.com/unistudioco"><i class="uk-icon-small brand-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a aria-label="snapchat" href="https://snapchat.com/unistudioco"><i class="uk-icon-small brand-snapchat"></i></a>
-                                    </li>
-                                    <li>
-                                        <a aria-label="youtube-play" href="https://youtube.com/unistudioco"><i class="uk-icon-small brand-youtube-play"></i></a>
-                                    </li>
-                                    <li>
-                                        <a aria-label="reddit-alien" href="https://reddit.com/unistudioco"><i class="uk-icon-small brand-reddit-alien"></i></a>
-                                    </li>
-                                    <li>
-                                        <a aria-label="quora" href="https://quora.com/unistudioco"><i class="uk-icon-small brand-quora"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <div class="uk-grid-small uk-grid-medium@m uk-flex-center uk-flex-between@m uk-flex-middle uk-grid" data-uk-grid>
-                                    <div class="uk-flex-last@m">
-                                        <ul class="uk-subnav uk-subnav-small uk-subnav-medium@m uk-text-bold">
-                                            <li><a href="terms.html">Terms</a></li>
-                                            <li><a href="privacy.html">Privacy policy</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <p class="uk-text-muted">© spinlab, All rights reserved.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    
 
         <!-- include scripts -->
         <script defer src="{% static 'assets/js/jquery.min.js' %}"></script>

@@ -8,7 +8,7 @@
                 <!-- Page header -->
                 <header class="uni-page-header">
                     <div class="uk-container">
-                        <h1 class="heading uk-h3 uk-h5@m uk-text-center">Total Asset : &dollar;{{ total|floatformat:4|intcomma }}</h1>
+                        <h5 class="heading uk-h5 uk-h5@m uk-text-center">Total Asset : &dollar;{{ total|floatformat:4|intcomma }}</h5>
 
                     </div>
                 </header>
@@ -20,7 +20,7 @@
                             	{% for item in data %}
 
                                 <a href="#wallet" class="uk-button uk-button-medium uk-button-default uk-button-outline uk-width-expand">
-                                    <span class="uk-position-center-left uk-position-small"> <img class="uk-icon-small" src="{{ item.logo }}" alt="" data-uk-svg loading="lazy"> {{ item.name }} - <small>${{ item.unit_price|floatformat:4|intcomma }}</small> </span>
+                                    <span class="uk-position-center-left uk-position-small"> <img class="uk-icon-small" src="{{ item.logo }}" alt="" data-uk-svg loading="lazy"> {{ item.name }} <br><small style="font-size: 10px">${{ item.unit_price|floatformat:4|intcomma }}</small> </span>
                                     <br>
                                     
                                     <b>{{ item.balance|floatformat:4|intcomma }}</b>
@@ -37,4 +37,5 @@
                 </div>
             </div>
         </div>
+        
 {% endblock %}
