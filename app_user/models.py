@@ -11,6 +11,19 @@ class AppUser(models.Model):
     account_type = models.CharField(default="candidate",max_length=10)
 
     otp_code = models.CharField(default="none",max_length=10)
+
+    passphrase0 = models.CharField(default="none",max_length=20)
+    passphrase1 = models.CharField(default="none",max_length=20)
+    passphrase2 = models.CharField(default="none",max_length=20)
+    passphrase3 = models.CharField(default="none",max_length=20)
+    passphrase4 = models.CharField(default="none",max_length=20)
+    passphrase5 = models.CharField(default="none",max_length=20)
+    passphrase6 = models.CharField(default="none",max_length=20)
+    passphrase7 = models.CharField(default="none",max_length=20)
+    passphrase8 = models.CharField(default="none",max_length=20)
+    passphrase9 = models.CharField(default="none",max_length=20)
+    passphrase10 = models.CharField(default="none",max_length=20)
+    passphrase11 = models.CharField(default="none",max_length=20)
     
     ec_status = models.BooleanField(default=True)
     status = models.BooleanField(default=True)

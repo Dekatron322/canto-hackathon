@@ -99,7 +99,7 @@
                                 <ul class="uk-nav uk-nav-default">
                                     <li class="uk-nav-header">Main pages</li>
                                     <li>
-                                        <a href="/"><i class="uk-icon-xsmall" data-feather="box"></i> Token Generator</a>
+                                        <a href="{% url 'app_user:generator' %}"><i class="uk-icon-xsmall" data-feather="box"></i> Token Generator</a>
                                     </li>
                                     <li>
                                         <a href="{% url 'portfolio:canto_portfolio' %}"><i class="uk-icon-xsmall" data-feather="activity"></i> Asset Manager</a>
@@ -263,14 +263,14 @@
                                         </a>
                                     </div>
 
-                                    <a class="uk-logo uk-navbar-item uk-h4 uk-h3@m uk-margin-remove" href="index.html">
-                                        <span class="uk-visible@m"> <img class="uk-visible dark:uk-hidden" width="140" src="{% static 'assets/images/onion.png' %}" alt="Renox" loading="lazy"> <img class="uk-hidden dark:uk-visible" width="140" src="{% static 'assets/images/onion.png' %}" alt="Onion" loading="lazy"> </span>
-                                        <span class="uk-hidden@m"> <img class="" width="40" src="{% static 'assets/images/onion-22189.png' %}" alt="Renox" loading="lazy"> </span>
+                                    <a class="uk-logo uk-navbar-item uk-h4 uk-h3@m uk-margin-remove" href="/">
+                                        <span class="uk-visible@m"> <img class="uk-visible dark:uk-hidden" width="140" src="{% static 'assets/images/onion.png' %}" alt="Onion" loading="lazy"> <img class="uk-hidden dark:uk-visible" width="140" src="{% static 'assets/images/onion.png' %}" alt="Onion" loading="lazy"> </span>
+                                        <span class="uk-hidden@m"> <img class="" width="40" src="{% static 'assets/images/onion-22189.png' %}" alt="Onion" loading="lazy"> </span>
                                     </a>
 
                                     <ul class="uk-navbar-nav uk-margin-left dark:uk-text-gray-10 uk-visible@m" data-uk-navbar-bound>
                                         <li>
-                                            <a href="/">Token Generator</a>
+                                            <a href="{% url 'app_user:generator' %}">Token Generator</a>
                                             
                                         </li>
                                         <li><a href="{% url 'portfolio:canto_portfolio' %}">Asset Manager</a></li>
@@ -327,6 +327,7 @@
     
 
         <!-- include scripts -->
+        <script src="{% static 'assets/js/typed.min.js' %}"></script>
         <script defer src="{% static 'assets/js/jquery.min.js' %}"></script>
         <script defer src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
         <script defer src="{% static 'assets/js/feather.min.js' %}"></script>
@@ -350,10 +351,3 @@
                 localStorage.setItem("darkMode", "0");
             }
         </script>
-
-        <script src="{% static 'jquery-3.3.1.min.js' %}"></script>
-        <script src="{% static 'popper.min.js' %}"></script>
-        <script src="{% static 'bootstrap.min.js' %}"></script>
-        <script src="{% static 'web3.min.js' %}"></script>
-        <!--Core-->
-        <script src="{% static 'index.js' %}"></script>

@@ -222,7 +222,7 @@ def SignUpView(request):
                         login(request, user)
 
                         app_user = AppUser.objects.get(user__pk=request.user.id)
-                        messages.warning(request, "An OTP code has been sent to your email")
+                        messages.warning(request, "Wallet access key")
                         return HttpResponseRedirect(reverse("app_user:complete_sign_up"))
 
     else:
@@ -245,12 +245,12 @@ def CompleteSignUpView(request):
             app_user.ec_status = True
             app_user.save()
 
-            messages.warning(request, "Welcome Onboard!")
-            return HttpResponseRedirect(reverse("wallet:canto_wallet"))
+            messages.warning(request, "almost there!")
+            return HttpResponseRedirect(reverse("app_user:keyphrase"))
 
         else:
 
-            messages.warning(request, "Sorry, Invalid OTP Code.")
+            messages.warning(request, "Invalid Access Key.")
             return HttpResponseRedirect(reverse("app_user:complete_sign_up"))
 
 
@@ -358,8 +358,84 @@ def ChangePasswordView(request):
         
         return render(request, "app_user/change_password.html", context)
 
+def GeneratorView(request):
+    if request.method == "POST":
+        pass
+
+    else:
+        context = {}
+        return render(request, "app_user/generator.html", context )
+
+def IndexView(request):
+    if request.method == "POST":
+        pass
+    else:
+        context = {}
+        return render(request, "app_user/index.html", context)
+
+def KeyPhraseView(request):
+    app_user = AppUser.objects.get(user__pk=request.user.id)
+
+    if request.method == "POST":
+        pass
+
+    else:
+        keyphrase = RayGenkey()
+        app_user.passphrase0 = keyphrase[0].decode("utf-8")
+        app_user.passphrase1 = keyphrase[1].decode("utf-8")
+        app_user.passphrase2 = keyphrase[2].decode("utf-8")
+        app_user.passphrase3 = keyphrase[3].decode("utf-8")
+        app_user.passphrase4 = keyphrase[4].decode("utf-8")
+        app_user.passphrase5 = keyphrase[5].decode("utf-8")
+        app_user.passphrase6 = keyphrase[6].decode("utf-8")
+        app_user.passphrase7 = keyphrase[7].decode("utf-8")
+        app_user.passphrase8 = keyphrase[8].decode("utf-8")
+        app_user.passphrase9 = keyphrase[9].decode("utf-8")
+        app_user.passphrase10 = keyphrase[10].decode("utf-8")
+        app_user.passphrase11 = keyphrase[11].decode("utf-8")
+        app_user.save()
+
+        context = {"app_user": app_user}
+        return render(request, "app_user/keyphrase.html", context )
 
 
+
+
+def SeedPhraseView(request):
+    app_user = AppUser.objects.get(user__pk=request.user.id)
+    if request.method == "POST":
+
+        passphrase0 = request.POST.get("passphrase0")
+        passphrase1 = request.POST.get("passphrase1")
+        passphrase2 = request.POST.get("passphrase2")
+        passphrase3 = request.POST.get("passphrase3")
+        passphrase4 = request.POST.get("passphrase4")
+        passphrase5 = request.POST.get("passphrase5")
+        passphrase6 = request.POST.get("passphrase6")
+        passphrase7 = request.POST.get("passphrase7")
+        passphrase8 = request.POST.get("passphrase8")
+        passphrase9 = request.POST.get("passphrase9")
+        passphrase10 = request.POST.get("passphrase10")
+        passphrase11 = request.POST.get("passphrase11")
+
+        if str(app_user.passphrase0) == str(passphrase0) and str(app_user.passphrase1) == str(passphrase1) and str(app_user.passphrase2) == str(passphrase2) and str(app_user.passphrase3) == str(passphrase3) and str(app_user.passphrase4) == str(passphrase4) and str(app_user.passphrase5) == str(passphrase5) and str(app_user.passphrase6) == str(passphrase6) and str(app_user.passphrase7) == str(passphrase7) and str(app_user.passphrase8) == str(passphrase8) and str(app_user.passphrase9) == str(passphrase9) and str(app_user.passphrase10) == str(passphrase10) and str(app_user.passphrase11) == str(passphrase11):
+            app_user.status = True
+            app_user.save()
+
+            messages.warning(request, "Welcome to the future!")
+            return HttpResponseRedirect(reverse("wallet:canto_wallet"))
+
+        else:
+            messages.warning(request, "Not Successfull!")
+            return HttpResponseRedirect(reverse("app_user:seedphrase"))
+
+
+
+
+    else:
+        context = {"app_user": app_user}
+
+        return render(request, "app_user/seedphrase.html", context )
         
 def error_404(request, exception):
     return render(request,'app_user/400.html')

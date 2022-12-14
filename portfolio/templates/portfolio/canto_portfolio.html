@@ -31,11 +31,90 @@
                                 
                             </div>
                             
-                            <p class="uk-text-small uk-text-muted uk-text-center">We do not own your private keys and cannot access your funds without your confirmation.</p>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
+
+        <div class="uni-collections uk-section uk-section-large@m uk-panel uk-overflow-hidden uk-border-top">
+
+                <!-- Page header -->
+                <header class="uni-page-header">
+                    <div class="uk-container">
+                        <h6 class="heading uk-h3 uk-h6@m uk-text-center">Your NFTs</h6>
+                    </div>
+                </header>
+                <div class="uk-margin-top uk-margin-xsmall-top@m">
+                    <div class="uk-container">
+
+                        
+
+                       
+
+                        <!-- collections listing -->
+                        <div class="uk-section-small uk-section-large@m uk-padding-remove-bottom">
+                            <div id="collections-list-container" class="uk-grid-2xsmall uk-grid@m uk-grid-match uk-child-width-1-2 uk-child-width-1-4@m uk-grid" data-uk-grid>
+                                {% for items in nfts %}
+                                <div>
+
+                                    <div class="uni-collection uk-panel uk-overflow-hidden uk-card uk-card-2xsmall uk-card-border uk-radius uk-radius-large@m uk-text-center uk-box-shadow-hover-medium">
+                                        <div class="uni-collection-cover uk-card-media-top uk-panel uk-overflow-hidden uk-radius">
+                                            <canvas class="uk-visible@m" height="140"></canvas>
+                                            <canvas class="uk-hidden@m" height="160"></canvas>
+                                            <div class="uk-cover" data-uk-cover>
+                                                <div class="uk-grid-collapse uk-grid-gallery@m uk-child-width-expand uk-height-1-1 uk-grid" data-uk-grid>
+                                                    <div>
+                                                        <div class="uk-panel uk-overflow-hidden uk-height-1-1">
+                                                            {% if items.image|slice:"1" == "h" %}
+                                                            <img src="{{ items.image }}" alt="Thesalvare" class="uk-cover" data-uk-cover loading="lazy">
+                                                            {% else %}
+                                                            {{ items.image }}
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <a href="author.html" class="uk-position-cover" aria-label="Thesalvare"></a>
+                                        </div>
+                                        <div class="uni-collection-content uk-card-xsmall uk-padding-remove-top">
+                                            <div class="uni-collection-avatar uk-grid uk-flex-center" data-uk-grid>
+                                                <div>
+                                                    <div class="uk-panel uk-padding-2xsmall uk-radius-circle uk-background-white dark:uk-background-gray-100">
+                                                        <div class="uni-user-avatar uk-panel">
+                                                            <div class="uk-panel uk-overflow-hidden uk-radius-circle">
+                                                                <canvas width="60" height="60"></canvas>
+                                                                <img src="{{ items.image }}" alt="Thesalvare" class="uni-user-avatar-image uk-cover uk-radius-circle" data-uk-cover loading="lazy"> <a aria-label="Thesalvare" href="author.html" class="uk-position-cover"></a>
+                                                            </div>
+                                                            <i class="uni-user-verified material-icons uk-radius-circle uk-background-white uk-text-info dark:uk-background-gray-100 uk-icon-xsmall">check_circle</i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h3 class="uni-collection-name uk-text-small uk-h6@m uk-margin-xsmall-top uk-margin-remove-bottom">
+                                                <a href="author.html" class="uk-link">{{ items.name }}</a>
+                                            </h3>
+                                            <span class="uni-collection-sales uk-text-small uk-text-bold uk-text-muted uk-flex-middle uk-flex-center">
+                                                <span>{{ items.balance }}</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <p class="uk-text-small uk-text-muted uk-text-center">We do not own your private keys and cannot access your funds without your confirmation.</p>
+                </div>
+            </div>
+        </div>
 {% endblock %}

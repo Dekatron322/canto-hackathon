@@ -445,6 +445,7 @@ window.addEventListener('load', async () => {
             .css({
                 "text-align": "center",
                 "color": "#0000ff"
+
             })
             .show();
         window.ethereum.enable().then(function (abc) {
@@ -458,7 +459,7 @@ window.addEventListener('load', async () => {
                 metamaskStatus.html('You reject the permission request, Please refresh to try again');
                 console.log("User rejected the permission request.");
             } else if (error.code == -32002) {
-                metamaskStatus.html("Metamask permission request is already pending</br>Open Metamask to allow")
+                metamaskStatus.html("Metamask permission request is already pending open Metamask to view")
                     .css({ "color": "#ffa500" });
             } else {
                 metamaskStatus.html(error.message);
@@ -558,7 +559,7 @@ function start() {
                 }
             })
             .then(function (balance) {
-                accountAddress.html(address + ' (' + balance + ' Canto)</strong>').show();
+                accountAddress.html('Connected: ' + address ).show();
             })
             .fail(function (err) {
                 if (err.message !== "Metamask Locked")
@@ -695,7 +696,7 @@ assetForm.submit(function (e) {
             } else if (isGoerli) {
                 statusText.innerHTML = 'Transaction  mined! Contract address: <a href="https://goerli.etherscan.io/token/' + newContractAddress + '" target="_blank">' + newContractAddress + '</a>'
             } else
-                statusText.innerHTML = 'Contract deployed at address <b>' + newContractAddress + '</b>'
+                statusText.innerHTML = 'Contract deployed at address <small>' + newContractAddress + '</small>'
         }).catch(function (error) {
             console.error(error);
             assetFormInput.prop("disabled", false);

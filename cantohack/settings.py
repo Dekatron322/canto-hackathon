@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'contract_generator',
+    #'contract_generator',
     'wallet',
     'portfolio',
     'app_user',

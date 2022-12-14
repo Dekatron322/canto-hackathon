@@ -72,12 +72,16 @@ def WCantoPortfolioView(request):
 			
 			resp = requests.get("https://api.iotexchartapp.com/canto-get-balance/%s/" % str(wallet)).json()
 			data = resp["data"]
+			#return HttpResponse(str(data))
+			response = requests.get("https://api.iotexchartapp.com/canto/get-nft/%s/" % str(wallet)).json()
+			nfts = response["data"]
 			
 			for item in data:
 				total += float(item['total_price'])
 
-			#return HttpResponse(data)
-			context = {"data": data, "total": total, "wallet": wallet}
+			#return HttpResponse(str(nfts))
+			print(nfts)
+			context = {"data": data, "total": total, "wallet": wallet, "nfts": nfts}
 			return render(request, "portfolio/canto_portfolio.html", context)
 			
 		except:

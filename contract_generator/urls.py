@@ -4,6 +4,7 @@ from . import views
 app_name = "contract_generator"
 
 urlpatterns = [
-    path("", views.GeneratorView, name="contract_generator"),
+    path("", views.IndexView, name="index"),
+    path("generator/", views.GeneratorView, name="generator"),
     
 ]
