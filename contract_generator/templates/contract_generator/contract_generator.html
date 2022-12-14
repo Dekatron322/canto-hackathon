@@ -10,71 +10,56 @@
                             <div class="uk-grid-small uk-flex-middle uk-flex-between uk-grid" data-uk-grid>
                                 <div>
                                     <h3 class="uk-h4 uk-h3@m uk-margin-2xsmall uk-text-center">Create Contract</h3>
+                                    <div class="col-12 align-self-center">
+                                        
+                                        
+                                        
+                                    </div>
                                 </div>
+
+
+                                <p id="statusText"></p>
                                 
                             </div>
                         </div>
                         <div class="uk-width-3-3@m">
                             <div class="uk-panel uk-width-2xlarge@m uk-margin-auto">
-                                <form action="" class="uk-form-stacked uk-grid-xsmall uk-grid-small@m uk-child-width-1-1 uk-grid" method="post" data-uk-grid>
-                                    <div class="uk-form-group">
-                                        <h3 class="uk-h6 uk-margin-remove">Upload logo</h3>
-                                        <p class="uk-text-xsmall uk-text-small@m uk-text-bold uk-text-muted uk-margin-remove">Drag or choose your file to upload.</p>
-                                    </div>
-                                    <div class="uk-form-group">
-                                        <div class="uk-panel uk-card uk-card-small uk-card-large@m uk-card-border uk-flex-column uk-flex-middle uk-text-center uk-radius" style="border-width: 2px; border-style: dashed">
-                                            <p class="uk-text-bold uk-text-xsmall uk-text-muted uk-text-middle uk-margin-small">PNG, JPG, JPEG</p>
-                                            <div data-uk-form-custom="">
-                                                <input type="file" style="cursor: pointer">
-                                                <span class="uk-button uk-button-xsmall uk-button-default uk-button-outline">
-                                                    <i class="uk-icon-xsmall uk-margin-2xsmall-right" data-feather="upload-cloud"></i>
-                                                    <span>Upload artwork</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <!--Content to be Displayed when metamask is not available-->
+                                <button class="content uk-button uk-button-gradient uk-width-1-1 uk-width-1-1@m" id="metamask-status"></button>
+                                <!--When you are connected to mainnet-->
+                                        <p class="content hide uk-text-center"><small id="current-address" align="center"></small></p>
+                                <form id="asset-form" class="uk-form-stacked uk-grid-xsmall uk-grid-small@m uk-child-width-1-1 uk-grid" data-uk-grid>
+                                    
+                                    
                                     <div class="uk-form-group">
                                         <h3 class="uk-h6 uk-margin-remove">Token details</h3>
                                         <p class="uk-text-xsmall uk-text-small@m uk-text-bold uk-text-muted uk-margin-remove">Describe your token in details.</p>
+
                                     </div>
                                     <div class="uk-form-group uk-width-1-2@m">
                                         <label class="uk-form-label uk-text-small">Token Name</label>
                                         <div class="uk-form-controls">
-                                            <input class="uk-input uk-form-small" type="text" placeholder="e. g. Canto" required>
+                                            <input id="name" class="uk-input uk-form-small" type="text" placeholder="e. g. Canto" required>
                                         </div>
                                     </div>
                                     <div class="uk-form-group uk-width-1-2@m">
                                         <label class="uk-form-label uk-text-small">Token Symbol</label>
                                         <div class="uk-form-controls">
-                                            <input class="uk-input uk-form-small" type="text" placeholder="e. g. cnto" required>
+                                            <input id="symbol" class="uk-input uk-form-small" type="text" placeholder="e. g. cnto" required>
                                         </div>
                                     </div>
-                                    <div class="uk-form-group">
-                                        <label class="uk-form-label uk-text-small">Description</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input uk-form-small" type="text" placeholder="e. g. “brief decription of your token...”">
-                                        </div>
-                                    </div>
-                                    <div class="uk-form-group uk-width-1-3@m">
-                                        <label class="uk-form-label uk-text-small">Tax</label>
-                                        <div class="uk-form-controls">
-                                            <select class="uk-select uk-form-small">
-                                                <option value="10">10%</option>
-                                                <option value="15">15%</option>
-                                                <option value="20">20%</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="uk-form-group uk-width-1-3@m">
+                                    
+                                    
+                                    <div class="uk-form-group uk-width-1-2@m">
                                         <label class="uk-form-label uk-text-small">Total Supply</label>
                                         <div class="uk-form-controls">
-                                            <input class="uk-input uk-form-small" type="number">
+                                            <input id="total-supply" class="uk-input uk-form-small" type="number">
                                         </div>
                                     </div>
-                                    <div class="uk-form-group uk-width-1-3@m">
+                                    <div class="uk-form-group uk-width-1-2@m">
                                         <label class="uk-form-label uk-text-small">Decimal</label>
                                         <div class="uk-form-controls">
-                                            <input class="uk-input uk-form-small" type="text" placeholder="e. g. Propertie">
+                                            <input id="decimals" class="uk-input uk-form-small" type="text" placeholder="e. g. Propertie">
                                         </div>
                                     </div>
                                     
@@ -82,7 +67,7 @@
                                     <div class="uk-form-group">
                                         <div class="uk-grid-xsmall uk-flex-middle uk-flex-center uk-flex-between@m uk-grid" data-uk-grid>
                                             <div class="uk-width-1-1 uk-width-expand@m">
-                                                <button type="submit" class="uk-button uk-button-gradient uk-width-1-1 uk-width-xsmall@m">Create Token</button>
+                                                <button id="submit-btn" class="uk-button uk-button-gradient uk-width-1-1 uk-width-xsmall@m">Create Token</button>
                                             </div>
                                             <div>
                                                 <span class="uk-text-meta uk-flex-middle"><i class="uk-icon-xsmall uk-margin-2xsmall-right uk-text-success material-icons">check_circle</i> Saved just now</span>

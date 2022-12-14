@@ -64,14 +64,14 @@ def SendCantoTokenView(request, token_address):
 		
 		
 			#name = "Brise"
-		#else:
-			#pass
+		else:
+			pass
 		try:
 			resp = requests.post("https://api.iotexchartapp.com/send-canto/", data={"sender":sender,"sender_key":sender_key, "receiver": receiver, "amount":amount, "token":token}).json()
 				#SendB(sender, sender_key, receiver, amount, token)
 			txn_hash = resp["txn_hash"]
 			messages.success(request, (txn_hash))
-			return HttpResponseRedirect(reverse("wallet:bsc_wallet"))
+			return HttpResponseRedirect(reverse("wallet:canto_wallet"))
 		except Exception as e:
 			messages.warning(request, "Not successfull out of Gas")
 				#print e

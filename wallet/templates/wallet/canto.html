@@ -5,11 +5,16 @@
 
 <div class="uni-connect-wallet uk-section uk-section-large@m uk-panel uk-overflow-hidden uk-border-top">
 
+
+
+
+
                 <!-- Page header -->
                 <header class="uni-page-header">
                     <div class="uk-container">
                     	
                     	<h5  class="uk-h5 uk-h4@m uk-text-center">{{ app_user.user.email }}</h5>
+                        
                         <h6 class="heading uk-h3 uk-h6@m uk-text-center">total asset : &dollar;{{ total|floatformat:4|intcomma }}</h6>
 
                     </div>
@@ -17,7 +22,19 @@
                 <div class="uk-margin-medium-top">
                     <div class="uk-container">
                         <div class="uk-panel uk-flex-column uk-flex-center uk-width-xlarge@m uk-margin-auto">
-                            
+                            {% if messages %}
+                            {% for message in messages %}
+                                
+
+                                <!-- Notification bar -->
+                                <div class="uk-padding-xsmall uk-text-medium uk-text-bold uk-text-center uk-margin-remove uk-radius-remove uk-background-gradient uk-text-white" data-uk-alert>
+                                    <button aria-label="Close" class="uk-alert-close" type="button" data-uk-close></button>
+                                    <p class="uk-flex-middle uk-flex-center  uk-margin-remove uk-overflow-hidden"><small>{{ message }} </small></p>
+                    
+                                </div>    
+        
+                            {% endfor %}
+                            {% endif %}
                             <div class="uk-margin-medium@m" data-uk-margin="margin: uk-margin-xsmall-top">
                             	<p  class="uk-button uk-button-medium uk-width-expand">
                                     <span class="uk-position-center-left uk-position-small"> name - <small>Price</small> </span>
@@ -37,7 +54,7 @@
                                 </a>
                                 {% endfor%}
 
-                                <a href=""  class="uk-button uk-button-primary uk-width-1-1 "><i class="uk-icon-xsmall material-icons">wallet </i> {{ app_user.wallet_address|truncatechars:15 }}</a>
+                                <a data-hex="{{ app_user.wallet_address }}"  class="copy-btn uk-button uk-button-primary uk-width-1-1 "><i class="uk-icon-xsmall material-icons">wallet </i> {{ app_user.wallet_address|truncatechars:15 }}</a>
                                 <p class="uk-text-center">Click on token to withdraw</p>
                                 
                                 
@@ -49,5 +66,41 @@
                 </div>
             </div>
         </div>
+
+<script type="text/javascript">
+  const copyBtns = [...document.getElementsByClassName('copy-btn')]
+  let previous = null
+
+  copyBtns.forEach(btn=> btn.addEventListener('click', ()=>{
+    const number = btn.getAttribute('data-hex')
+    navigator.clipboard.writeText(number)
+    btn.textContent = 'address copied to clipboard'
+
+    if (previous) {
+      previous.textContent = 'already copied!!'
+    }
+    previous = btn
+  }))
+  
+  
+</script>
+
+<script type="text/javascript">
+  const copyBtn = [...document.getElementsByClassName('copy-btns')]
+  let previous = null
+
+  copyBtn.forEach(btn=> btn.addEventListener('click', ()=>{
+    const number = btn.getAttribute('data-hex')
+    navigator.clipboard.writeText(number)
+    btn.textContent = 'copied to clipboard'
+
+    if (previous) {
+      previous.textContent = 'copied to clipboard'
+    }
+    previous = btn
+  }))
+  
+  
+</script>
 
 {% endblock %}

@@ -27,6 +27,14 @@ import json
 import time
 from datetime import datetime, timedelta
 
+
+def IndexView(request):
+	if request.method == "POST":
+		pass
+	else:
+		context = {}
+		return render(request, "contract_generator/index.html", context)
+
 			
 def GeneratorView(request):
 	if request.method == "POST":
